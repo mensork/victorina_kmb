@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<questions>
+  <question seconds="15">
+    <text>Сколько байт в килобайте?</text>
+    <variants>
+      <variant>1000</variant>
+      <variant>2048</variant>
+      <variant right="true">1024</variant>
+      <variant>512</variant>
+    </variants>
+  </question>
+
+  <question seconds="20">
+    <text>В каком году отменили крепостное право?</text>
+    <variants>
+      <variant>1917</variant>
+      <variant>1991</variant>
+      <variant>1825</variant>
+      <variant right="true">1861</variant>
+    </variants>
+  </question>
+
+  <question seconds="10">
+    <text>Как называется муж сестры?</text>
+    <variants>
+      <variant>Деверь</variant>
+      <variant right="true">Зять</variant>
+      <variant>Шурин</variant>
+      <variant>Тесть</variant>
+    </variants>
+  </question>
+</questions>
