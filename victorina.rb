@@ -24,25 +24,24 @@ abort 'Файл questions.xml не найден.' unless File.exist?(file_name)
 
 file = File.new(file_name, 'r:UTF-8')
 doc = REXML::Document.new(file)
-collection = QuestionsCollection.new
-collection.read_from_xml(doc)
-collection.create_collection
+collection = QuestionsCollection.read_from_xml(doc)
 
-questions = collection.questions.shuffle
+collection.shuffle!
+
 score = 0
 count = 0
 
-puts "Вы набрали #{score} из #{questions.size} баллов."
+puts "Вы набрали #{score} из #{collection.size} баллов."
 
 puts 'Добро пожаловать в Викторину! Ответьте на следующие вопросы:'
 puts
-while count < questions.size do
-  question = questions[count]
+while count < collection.size do
+  question = collection[count]
 
   start_time = AbsoluteTime.now
 
   puts question.text_of_question
-  question.show_variants
+  question.variants.each_with_index { |item, index| puts "#{index + 1}. #{item}" }
   puts
   puts "Время на ответ: #{question.time_for_reply} секунд"
   puts
@@ -63,4 +62,4 @@ while count < questions.size do
   count +=1
 end
 
-puts "Вы ответили на все вопросы и набрали #{score} из #{questions.size} баллов."
+puts "Вы ответили на все вопросы и набрали #{score} из #{collection.size} баллов."
