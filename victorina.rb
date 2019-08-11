@@ -31,7 +31,7 @@ collection.shuffle!
 score = 0
 count = 0
 
-puts "Вы набрали #{score} из #{collection.size} баллов."
+# puts "Вы набрали #{score} из #{collection.size} баллов."
 
 puts 'Добро пожаловать в Викторину! Ответьте на следующие вопросы:'
 puts

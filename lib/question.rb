@@ -10,14 +10,14 @@ class Question
 
   def set_variants(question_node)
     variants = []
-    question_node.elements.each('*/variant') { |item| variants << item.text }
+    question_node.elements.each('*/variant') {|item| variants << item.text}
     variants
   end
 
   def set_right_variant(question_node)
     right_variant = nil
-        question_node.elements.each('*/variant') do |item|
-      right_variant = item.text if item.attributes['right'] == 'true'
+    question_node.elements.each('*/variant') do |item|
+      right_variant = item.text if item.attributes['right']
     end
     right_variant
   end
