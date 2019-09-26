@@ -9,17 +9,13 @@ class Question
   end
 
   def set_variants(question_node)
-    variants = []
-    question_node.elements.each('*/variant') {|item| variants << item.text}
-    variants
+    question_node.get_elements('*/variant').map {|item| item.text}
   end
 
   def set_right_variant(question_node)
-    right_variant = nil
-    question_node.elements.each('*/variant') do |item|
-      right_variant = item.text if item.attributes['right']
-    end
-    right_variant
+    right_answer_with_tags = question_node.get_elements('*/variant').
+      select {|item| item.attributes['right']}
+    right_answer_with_tags[0].text
   end
-end
 
+end

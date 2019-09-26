@@ -29,15 +29,11 @@ collection = QuestionsCollection.read_from_xml(doc)
 collection.shuffle!
 
 score = 0
-count = 0
-
-# puts "Вы набрали #{score} из #{collection.size} баллов."
 
 puts 'Добро пожаловать в Викторину! Ответьте на следующие вопросы:'
 puts
-while count < collection.size do
-  question = collection[count]
 
+collection.each do |question|
   start_time = AbsoluteTime.now
 
   puts question.text_of_question
@@ -47,6 +43,7 @@ while count < collection.size do
   puts
   puts 'Выберите правильный вариант:'
   choice = STDIN.gets.to_i - 1
+
   end_time = AbsoluteTime.now
 
   if end_time - start_time > question.time_for_reply
